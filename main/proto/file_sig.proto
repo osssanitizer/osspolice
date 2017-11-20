@@ -1,0 +1,265 @@
+syntax = "proto2";
+package gtisc.gpl_voilation.proto;
+
+
+/*
+ * For a class, it has:
+ * 	-- parent class
+ * 	-- implemented interfaces
+ *  -- outer class
+ *
+ *  -- static fields
+ *  -- instance fields
+ *  -- methods
+ *
+ * For a method, it has:
+ *	-- prototype: parameters, return type
+ *  -- local variables
+ *  -- statements
+ *
+ * Statements we care about:
+ * 	-- AssignStmt: left value, right value
+ *	-- InvokeStmt: InvokeExpr
+ *
+ * Left Value:
+ *  -- array_ref, instance_field_ref, static_field_ref, local
+ *
+ * Right Value:
+ *  -- array_ref, constant, instance_field_ref, static_field_ref, local, expr
+ *
+ * Expr:
+ *  -- cast_expr, instance_of_expr, invoke_expr, new_array_expr, new_expr, new_multi_array_expr
+ *
+ * InvokeExpr:
+ *  -- interface_invoke_expr, special_invoke_expr, static_invoke_expr, virtual_invoke_expr
+ *
+ * Different relations between Class A and Class B
+ */
+
+// Centroid and BasicBlock: http://dl.acm.org/citation.cfm?id=2568286
+message Centroid {
+    required double x = 1 [default=0];
+    required double y = 2 [default=0];
+    required double z = 3 [default=0];
+    required int32 w = 4 [default=0];
+}
+
+message BasicBlockProto {
+    // x, sequence number, use deterministic depth-first traversal to assign sequence number
+    optional int32 sequence_number = 1;
+    // incoming edges, in degree is the number of incoming edges for a basic block
+    optional int32 in_degree = 2;
+    // y, outgoing edges, out degree is the number of outgoing edges in basic block
+    optional int32 out_degree = 3;
+    // incoming edges, doesn't include exceptional edges
+    optional int32 in_degree_unexceptional = 4;
+    // y, outgoing edges, doesn't include exceptional edges
+    optional int32 out_degree_unexceptional = 5;
+    // z, loop depth of the node, depth is the depth of loop
+    optional int32 loop_depth = 6;
+    // w, number of statements, total number of statements
+    optional int32 stmt_count = 7;
+    // w', list of invoked method signatures
+    repeated string invoked_method_signatures = 8;
+    // predecessors, represented using sequence number
+    repeated int32 predecessors = 9;
+    // successors, represented using sequence number
+    repeated int32 successors = 10;
+    // the dominator sequence number, used for debugging!
+    optional int32 dominator_sequence_number = 11;
+    // NOTE: this is only used for debugging! information is not available in production!
+    optional string block_content = 12 [deprecated=true];
+
+}
+
+message Location {
+    optional int32 row = 1;
+    optional int32 column = 2;
+}
+
+message LocationRelatedInfo {
+    // Location related information
+    optional int32 group = 1;
+    optional bool is_template_instantiation = 2;
+    optional Location start = 3;
+    optional Location end = 4;
+    optional Location instantiation_loc = 5;
+}
+
+message MethodAttributeProto {
+    optional string class_name = 1;
+    optional string method_name =2;
+    optional string method_signature = 3;
+    optional string method_subsignature = 4;
+    repeated string paramter_types = 5;
+    optional string return_type = 6;
+    repeated string local_types = 7;
+    repeated string string_constants = 8;
+    // Deprecated: The methods that this method invokes, specially we want to check if it is a API method
+    // The invoked method signatures is moved into basic blocks
+    repeated string invoked_method_signatures = 9 [deprecated=true];
+    repeated string resource_refs = 10;
+    repeated string statements = 11;
+    optional string modifiers = 12;
+    optional Centroid centroid = 13;
+    optional Centroid centroid_with_invoke = 14;
+    repeated BasicBlockProto blocks = 15;
+    optional LocationRelatedInfo location_info = 16;
+    optional int32 export_type = 17;
+}
+
+message ClassAttributeProto {
+    optional string class_name = 1;
+    // C++ supports multi-inheritence, compared to Java
+    repeated string super_class_names = 2;
+    repeated string interface_class_names = 3;
+    optional string package_name = 4;
+    optional bool is_entry_point = 5;
+    repeated string static_field_strings = 6;
+    repeated string instance_field_strings = 7;
+    repeated string permission_strings = 8;
+    repeated MethodAttributeProto methods = 9;
+    optional string outer_class_name = 10;
+    optional string modifiers = 11;
+    // Since classes can be defined in multiple places, it is harder to get the location info for them
+    optional LocationRelatedInfo location_info = 12;
+    optional int32 export_type = 13;
+}
+
+message ClassRelationProto {
+    required string classname1 = 1;
+    required string classname2 = 2;
+    // This should be consistent with ClassRelation.java
+    enum RelationType {
+        INHERITANCE = 0;
+        STATIC_ARRAY_FIELD = 1;
+        STATIC__FIELD = 2;
+        INSTANCE_ARRAY_FIELD = 3;
+        INSTANCE_FIELD = 4;
+        METHOD_ARRAY_PARAMERTER = 5;
+        METHOD_PARAMETER = 6;
+        METHOD_ARRAY_RETURN = 7;
+        METHOD_RETURN = 8;
+        METHOD_ARRAY_LOCAL = 9;
+        METHOD_LOCAL = 10;
+
+        STMT_ARRAY_REF = 11;
+        STMT_INSTANCE_FIELD_REF = 12;
+        STMT_STATIC_FIELD_REF = 13;
+        STMT_LOCAL_REF = 14;
+
+        CAST_EXPR = 15;
+        INSTANCE_OF_EXPR = 16;
+        NEW_EXPR = 17;
+        NEW_ARRAY_EXPR = 18;
+        NEW_MULTI_ARRAY_EXPR = 19;
+
+        INVOKE_EXPR = 20;
+        ICC = 21;
+
+        IMPL = 22;
+        OUTER_CLASS = 23;
+
+        ClassRelationNone = 24;
+    }
+    message RelationCounter {
+        required RelationType relation_type = 1;
+        required int32 relation_count = 2 [default=1];
+    }
+    repeated RelationCounter relation_counters = 3;
+    // classname1 is absolutely application class, because we need to inspect the implementation to get
+    // the relationship between classname1 and classname2.
+    // but classname2 can be non-application classes and can require permissions.
+    optional bool classname2_is_application_class = 4;
+    // classname2 can require permissions, only record this if classname2 is not application class
+    repeated string classname2_permissions = 5;
+}
+
+message DataProto {
+    // for global variables, 1,2,3 are necessary; for string constants, 1,2 are necessary
+    // TODO: how about int/double/float constants?
+    enum DataType {
+        INT_CONSTANT = 0;
+        STRING_CONSTANT = 1;
+        FLOAT_CONSTANT = 2;
+        GLOBAL_VARIABLE = 3;
+    }
+    optional DataType type = 1;
+    optional string value = 2;
+    optional string name = 3;
+    optional LocationRelatedInfo location_info = 4;
+    optional int32 export_type = 5;
+}
+
+enum ProcessingMode {
+    // Lexer based string extraction, regex based func extraction
+    LEXER = 0;
+    // Parser based feature extraction
+    PARSER = 1;
+    // Lexer based string extraction, GTAGS based func extraction
+    GTAGS = 2;
+}
+
+message FileAttributeProto {
+    // C only have functions
+    required string name = 1;
+    optional string path = 2;
+    repeated MethodAttributeProto methods = 3;
+    // C++ have classes. Both C and C++ have structs etc.
+    repeated ClassAttributeProto classes = 4;
+    // String constants
+    repeated DataProto strings = 5;
+    // Global variables, extern etc.
+    repeated DataProto globals = 6;
+    // System calls
+    repeated string syscalls = 7;
+    // Not used now! We don't detect licenses for individual files, shall we?
+    repeated string licenses = 8;
+    // The processing mode for this file
+    optional ProcessingMode mode = 9 [default=PARSER];
+}
+
+message DirAttributeProto {
+    required string name = 1;
+    optional string path = 2;
+    // Not used now! We don't maintain hierarchy of the features
+    repeated FileAttributeProto files = 3;
+    repeated DirAttributeProto dirs = 4;
+    // THIRD-PARTY license means third party folder
+    repeated string licenses = 5;
+    repeated string license_filenames = 6;
+}
+
+enum Source {
+    GOOGLE_PLAY = 0;
+    GITHUB = 1;
+    BITBUCKET = 2;
+    FDROID = 3;
+    ANDROID_ARSENAL = 4;
+    MAVEN = 5;
+    JCENTER = 6;
+    GITLAB = 7;
+    JITPACK = 8;
+}
+
+message BranchInfoProto {
+    required string id = 1;
+    optional string tag = 2;
+    optional string name = 3;
+    // creation date of the tag/branch
+    optional string timestamp = 4;
+    optional Source source = 5 [default=GITHUB];
+    optional string group_id = 6;
+    optional string artifact_id = 7;
+    repeated string licenses = 8;
+}
+
+message AllFilesSummary {
+    // Each time, only one tag is analyzed!
+    optional BranchInfoProto info = 1;
+    optional string root_path = 2;
+    repeated FileAttributeProto files = 3;
+    repeated DirAttributeProto dirs = 4;
+    optional string timestamp = 5;
+}
+

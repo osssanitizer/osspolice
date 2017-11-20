@@ -1,0 +1,5 @@
+[Redis]
+TYPE = TCP_SOCKET
+PORT = 6381
+HOST = localhost
+DATABASE = 0

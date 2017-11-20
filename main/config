@@ -1,0 +1,265 @@
+[Infrastructure]
+KV_STORE = Redis
+REPO_SOURCE = Github
+# For Celery queuing, the CELERY_BROKER_URL should be pointed to the rabbitmq broker address.
+QUEUING = Celery
+OSS_DB = PostgreSQL
+
+[PostgreSQL]
+#DB_HOST = localhost
+DB_HOST = arcee.gtisc.gatech.edu
+DB_PORT = 5432
+NATIVE_DBS = [{"database_name": "github", "database_user": "osspolice", "database_password": "OSSPolicePassword", "table_name": "repositories"}]
+JAVA_DBS = [{"database_name": "jcenter", "database_user": "osspolice", "database_password": "OSSPolicePassword", "table_name": "libs"}, {"database_name": "google", "database_user": "osspolice", "database_password": "OSSPolicePassword", "table_name": "libs"}, {"database_name": "jcenter", "database_user": "osspolice", "database_password": "OSSPolicePassword", "table_name": "libs"}]
+
+[Redis]
+TYPE = REDIS_CLUSTER
+#TYPE = TCP_SOCKET
+PORT = 6379
+HOST = localhost
+DATABASE = 0
+
+[RedisCluster]
+NATIVE_NODES = [{"host": "misfire.gtisc.gatech.edu", "port": "6000"}, {"host": "misfire.gtisc.gatech.edu", "port": "6001"}, {"host": "misfire.gtisc.gatech.edu", "port": "6002"}, {"host": "misfire.gtisc.gatech.edu", "port": "7000"}, {"host": "misfire.gtisc.gatech.edu", "port": "7001"}, {"host": "misfire.gtisc.gatech.edu", "port": "7002"}]
+NATIVE_VERSION_NODES = [{"host": "misfire.gtisc.gatech.edu", "port": "6003"}, {"host": "misfire.gtisc.gatech.edu", "port": "6004"}, {"host": "misfire.gtisc.gatech.edu", "port": "6005"}, {"host": "misfire.gtisc.gatech.edu", "port": "7003"}, {"host": "misfire.gtisc.gatech.edu", "port": "7004"}, {"host": "misfire.gtisc.gatech.edu", "port": "7005"}]
+JAVA_NODES = [{"host": "misfire.gtisc.gatech.edu", "port": "6000"}, {"host": "misfire.gtisc.gatech.edu", "port": "6001"}, {"host": "misfire.gtisc.gatech.edu", "port": "6002"}, {"host": "misfire.gtisc.gatech.edu", "port": "7000"}, {"host": "misfire.gtisc.gatech.edu", "port": "7001"}, {"host": "misfire.gtisc.gatech.edu", "port": "7002"}]
+JAVA_VERSION_NODES = [{"host": "misfire.gtisc.gatech.edu", "port": "6003"}, {"host": "misfire.gtisc.gatech.edu", "port": "6004"}, {"host": "misfire.gtisc.gatech.edu", "port": "6005"}, {"host": "misfire.gtisc.gatech.edu", "port": "7003"}, {"host": "misfire.gtisc.gatech.edu", "port": "7004"}, {"host": "misfire.gtisc.gatech.edu", "port": "7005"}]
+RESULT_NODES = [{"host": "misfire.gtisc.gatech.edu", "port": "6006"}, {"host": "misfire.gtisc.gatech.edu", "port": "6007"}, {"host": "misfire.gtisc.gatech.edu", "port": "6008"}, {"host": "misfire.gtisc.gatech.edu", "port": "7006"}, {"host": "misfire.gtisc.gatech.edu", "port": "7007"}, {"host": "misfire.gtisc.gatech.edu", "port": "7008"}]
+
+[Celery]
+CELERY_BROKER_URL = amqp://osspolice:OSSPolicePassword@ruian.gtisc.gatech.edu/osspolice
+CELERY_RESULTS_BACKEND = rpc://
+# logging and performance related
+STATS = Enabled
+STATS_LOGFILE_PREFIX = /tmp/worker_stats_
+LOGFILE_PREFIX = /tmp/worker_
+REDIS_READONLY_MODE = True
+KEEP_SIG = True
+REUSE_SIG = True
+SKIP_NO_SIG = False
+BINARY_SIG = True
+COMPRESS_SIG = True
+REPO_SIG_DIR = /data/gpl_violation/data/github/repo_sigs
+JAVA_SIG_DIR = /data/playanalysis/apps_sigs
+JAVA_SIG_LOAD_DIRS = ["/data/playanalysis/java_sigs", "/data/playanalysis/apps_sigs"]
+COMP_SIG_DIR = /data/playanalysis/apps_comps
+COMP_SIG_LOAD_DIRS = ["/data/playanalysis/apps_comps"]
+APP_PB_LOAD_DIRS = ["/data/playanalysis/apps_pb"]
+SEARCH_FEATURES = ["strings", "centroids"]
+FAILURE_FILE = /data/playanalysis/java_sigs.failure
+# The directory for storing crawling results or the search apk's extract results
+RESULT_DIR = /data/gpl_violation/data/results/validation/
+IGNORE_SCANNED = True
+# Enable using Lexer to parse a file
+LEXER_TIMEOUT = 90
+SCAN_FILES_FOR_LICENSE = True
+# The indexing configuration
+INDEX_REPO_VERSIONS = True
+INDEX_SUBMODULES = False
+# The mechanism used to select versions to index, either use major versions or use time distance
+INDEX_MAJOR_VERSIONS = True
+# Pick max 8 versions
+MAX_REPO_VERSIONS = 8
+# 3 months apart
+MIN_REPO_VERSIONS_DISTANCE = 3
+# limit querying server
+MAX_REPO_TAGS_QUERY = 50
+# use zset or hset for feature counting
+FEATURE_KEY_TYPE = hset
+COMMON_FEATURE_FILE = /data/playanalysis/common_features.csv
+
+[Github]
+REPO_URL_PROTOCOL = https
+REPO_URL_HOSTNAME = github.com
+REPO_CREDENTIALS_FILE = credentials.json
+REPO_CLONE_TIMEOUT = 300
+REPO_CLONE_RETRIES = 3
+REPO_SUBMODULE_TIMEOUT = 300
+
+[Indexing]
+STATS = Enabled
+STATS_LOGFILE_PREFIX = /tmp/index_stats_
+LOGFILE_PREFIX = /tmp/index_
+REPO_DIR = /data/repos
+CONFIGURE_TIMEOUT = 300
+LEXER_TIMEOUT = 90
+SCAN_FILES_FOR_LICENSE = True
+INDEX_REPO_VERSIONS = True
+INDEX_SUBMODULES = False
+# The mechanism used to select versions to index, either use major versions or use time distance
+INDEX_MAJOR_VERSIONS = True
+# Pick max 8 versions
+MAX_REPO_VERSIONS = 8
+# limit querying server
+MAX_REPO_TAGS_QUERY = 2000
+# 3 months apart
+MIN_REPO_VERSIONS_DISTANCE = 3
+KEEP_SIG = True
+REUSE_SIG = True
+BINARY_SIG = True
+COMPRESS_SIG = True
+REPO_SIG_DIR = /data/gpl_violation/data/github/repo_sigs
+
+[Searching]
+STATS = Enabled
+STATS_LOGFILE_PREFIX = /tmp/search_stats_
+LOGFILE_PREFIX = /tmp/search_
+#IGNORE_SCANNED = True
+SEARCH_FEATURES = ["str", "funcname", "func"]
+
+[JavaIndexing]
+STATS = Enabled
+STATS_LOGFILE_PREFIX = /tmp/index_stats_
+LOGFILE_PREFIX = /tmp/index_
+REPO_DIR = /data/repos
+KEEP_SIG = True
+REUSE_SIG = True
+BINARY_SIG = True
+COMPRESS_SIG = True
+JAVA_SIG_DIR = /tmp/java_index_sigs
+JAVA_SIG_LOAD_DIRS = ["/tmp/java_index_sigs"]
+
+[JavaSearching]
+STATS = Enabled
+STATS_LOGFILE_PREFIX = /tmp/search_stats_
+LOGFILE_PREFIX = /tmp/search_
+KEEP_SIG = True
+REUSE_SIG = True
+BINARY_SIG = True
+COMPRESS_SIG = True
+#IGNORE_SCANNED = True
+JAVA_SIG_DIR = /tmp/java_search_sigs
+JAVA_SIG_LOAD_DIRS = ["/tmp/java_index_sigs", "/tmp/java_search_sigs"]
+#SEARCH_FEATURES = ["strings", "centroids"]
+SEARCH_FEATURES = ["strings", "normclasses"]
+
+[JavaSignature]
+STATS = Enabled
+STATS_LOGFILE_PREFIX = /tmp/signature_stats_
+LOGFILE_PREFIX = /tmp/signature_
+KEEP_SIG = True
+REUSE_SIG = True
+BINARY_SIG = True
+COMPRESS_SIG = True
+EXCLUDE_FILE = /data/playanalysis/apps_sigs.done
+FAILURE_FILE = /data/playanalysis/apps_sigs.failure
+JAVA_SIG_DIR = /tmp/java_signature_sigs
+JAVA_SIG_LOAD_DIRS = ["/tmp/java_signature_sigs"]
+
+[ApkExtract]
+STATS = Enabled
+STATS_LOGFILE_PREFIX = /tmp/extract_stats_
+LOGFILE_PREFIX = /tmp/extract_
+RESULT_DIR = /tmp/apk_extractor/
+IGNORE_SCANNED = True
+REUSE_SIG = True
+
+[ApkSearching]
+STATS = Enabled
+STATS_LOGFILE_PREFIX = /tmp/apk_search_stats_
+LOGFILE_PREFIX = /tmp/apk_search_
+IGNORE_SCANNED = True
+JAVA_SIG_LOAD_DIRS = ["/tmp/apk_search_sigs"]
+COMP_SIG_LOAD_DIRS = ["/tmp/apk_search_comps"]
+EXCLUDE_FILE = /data/playanalysis/apk_search.done
+FAILURE_FILE = /data/playanalysis/apk_search.failure
+
+[Validate]
+STATS = Enabled
+STATS_LOGFILE_PREFIX = /tmp/validate_stats_
+LOGFILE_PREFIX = /tmp/validate_
+JAVA_SIG_LOAD_DIRS = ["/tmp/validate_sigs"]
+COMP_SIG_LOAD_DIRS = ["/tmp/validate_comps"]
+APP_PB_LOAD_DIRS = ["/data/playanalysis/apps_pb"]
+IGNORE_SCANNED = True
+IGNORE_DEVELOPER_WEBSITE = True
+
+[FeatureCounting]
+STATS = Enabled
+STATS_LOGFILE_PREFIX = /tmp/count_stats_
+LOGFILE_PREFIX = /tmp/count_
+RESULT_DIR = /tmp/feature_count/
+IGNORE_SCANNED = True
+COMP_SIG_LOAD_DIRS = ["/data/playanalysis/apps_comps"]
+# feature key type can be hset or zset
+FEATURE_KEY_TYPE = hset
+COMMON_FEATURE_FILE = /data/playanalysis/common_features.csv
+
+[Dumping]
+STATS = Disabled
+STATS_LOGFILE_PREFIX = /tmp/dump_stats_
+LOGFILE_PREFIX = /tmp/dump_
+
+[Profiling]
+PROFILING_ENABLED = False
+PROFILE_DUMP_FILE_PREFIX = /tmp/worker_
+
+[Algorithm]
+TEST_MODE = Disabled
+MIN_STRING_LEN = 3
+# MIN_PERCENT_MATCH = 10.0
+MIN_PERCENT_MATCH = {"native": 10.0, "java": 20.0}
+MAX_NAME_DISTANCE = 0.5
+USE_MD5_64BITS = 0
+USE_MD5_INT = 1
+USE_SHORT_STRS_AS_KEYS = 0
+# 4K
+MIN_SIZE_C_CPP_FILES = 4
+# 120MB
+MAX_SIZE_C_CPP_FILES = 122880
+MAX_PER_STR_MATCHING_REPO_COUNT = 2000
+USE_PERMISSION_STRINGS = False
+USE_REDIS_PIPELINE = True
+USE_UNIQ_FEATURES_FOR_TF = True
+USE_IFDEF_GROUP = False
+# Group the matched result by the majority set of matched features! This is for both Java and Native
+USE_GROUPED_RESULT = True
+MAX_GROUPED_RESULT_SIMHASH_DISTANCE = 5
+# This field is only used by native search!
+USE_GROUPED_MATCH = True
+# What types of nodes to apply grouped percent match
+#GROUPED_NODE_TYPES = ["dir", "file"]
+GROUPED_NODE_TYPES = ["dirs"]
+# The minimum number of functions to match when considering a repo/branch
+MIN_GROUPED_FUNCFREQ = 2
+# The minimum matched percentage of a file/dir to be considered when matching a file in grouped mode
+MIN_GROUPED_PERCENT_MATCH = 0.1
+# The maximum refcnt ratio for a regular file/dir within a repo
+MAX_GROUPED_REFCNT_RATIO = 2.0
+# Either use simhash as node id algorithm or md5 as node id algorithm
+NODE_ID_ALGORITHM = simhash
+#SIMHASH_DISTANCE = 1
+SIMHASH_DISTANCE = 5
+# Aggregate the refcnt of similar nodes at search time, to reflect the popularity of third-party files!
+#SEARCH_SIMHASH_DISTANCE = 5
+# Propogate the refcnt from lower nodes to higher ones, only works at file/dir level!
+SEARCH_REFCNT_PROPAGATION = False
+#NODE_ID_ALGORITHM = md5
+SHUFFLE_INPUT = True
+MIN_MATCHING_REPO_FEATURE_COUNT = 50
+MIN_LOW_LEVEL_MATCHING_SCORE = 0.2
+MIN_MATCHING_SCORE = {"native": 0.4, "java": 0.5}
+##########################################################################################
+# Used only java searching
+##########################################################################################
+# Used for Centroid, according to the paper, 0.01 yields Method-level False Positive Rate (MFPR) < 1%, 0 yields MFPR < 0.38%
+MAX_CENTROID_RESULT_COUNT = -1
+# (1) 0.4 min-score vs. MDD 0  -->  doesn't use similarity of centroid
+#MIN_MATCHING_SCORE = 0.4
+#MAX_METHOD_DIFFERENCE_DEGREE = 0
+# (2) 0.6 min-score vs. MDD 0.01 vs. USE_CENTROID_BIN = False  -->  use zset similarity of centroid
+MAX_METHOD_DIFFERENCE_DEGREE = 0.01
+USE_CENTROID_BIN = False
+# (3) 0.5 min-score vs. MDD 0.01 vs. USE_CENTROID_BIN = True  -->  use hset bin similarity of centroid
+#MIN_MATCHING_SCORE = 0.5
+#MAX_METHOD_DIFFERENCE_DEGREE = 0.02
+#USE_CENTROID_BIN = True
+#USE_ONE_CENTROID_BIN_IN_INDEX = True
+##########################################################################################
+# Used only version pinpointing, using version specific unique features, for native, turn this off, for java, turn it on
+##########################################################################################
+#USE_VERSION_DIFFERENCES = False
+USE_VERSION_DIFFERENCES = True
+USE_VERSION_AS_FEATURE = False
+# search co-location features, should have this minimum match ratio (currently TFIDF based)
+MIN_VERSION_PERCENT_MATCH = 0.7

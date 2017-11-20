@@ -1,0 +1,41 @@
+syntax = "proto2";
+
+package gtisc.gpl_voilation.proto;
+
+message JobConfig {
+	enum InputType {
+		APK = 0;  // android apps
+		DEX = 1;  // android dex files
+		JAR = 2;  // jar files
+		CLASS = 3;  // bytecode
+		SOURCE = 4;  // source code
+		APK_DIR = 5;  // path to android apps
+		DEX_DIR = 6;  // path to dex files
+		JAR_DIR = 7;  // path to jar files
+		CLASS_DIR = 8;  // path to class files
+		SOURCE_DIR = 9;  // path to source files
+
+		UNKNOWN = 10;
+	}
+	optional string job_name = 1;
+	optional InputType input_type = 2;
+	optional string input_path = 3;
+	optional string android_jar_dir_path = 4;
+	optional string force_android_jar_path = 5;
+	optional string config_path = 6;
+	optional string result_dir = 7;
+	optional string result_suffix = 15 [default=".sig"];
+	optional bool expect_android_jar = 16 [default=false];
+	optional int32 thread_num = 17;
+
+	// useless and debug
+	optional string soot_out_dir = 8;
+	optional bool console_print = 9;
+	optional bool binary_config = 10;
+	optional bool binary_output = 11 [default=false];
+	optional bool keep_soot_output = 12;
+
+	// more input options
+	optional string androsim_path = 13;
+	optional string diff_method_path = 14;
+}

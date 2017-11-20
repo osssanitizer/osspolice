@@ -1,0 +1,212 @@
+type,feature,freq
+funcname,_Unwind_Complete,177669
+funcname,_Unwind_DeleteException,177663
+funcname,_Unwind_GetLanguageSpecificData,177662
+funcname,_Unwind_GetRegionStart,177653
+funcname,_Unwind_RaiseException,175810
+funcname,_Unwind_Resume,175806
+funcname,_Unwind_VRS_Get,175374
+funcname,_Unwind_VRS_Set,175337
+funcname,_Unwind_GetTextRelBase,175175
+funcname,_Unwind_Resume_or_Rethrow,175169
+funcname,_Unwind_GetDataRelBase,175166
+funcname,__aeabi_unwind_cpp_pr0,173480
+funcname,__aeabi_unwind_cpp_pr1,173477
+funcname,_Unwind_VRS_Pop,173465
+funcname,__aeabi_unwind_cpp_pr2,173416
+funcname,_Unwind_Backtrace,173325
+funcname,_Unwind_GetCFA,173307
+funcname,__gnu_unwind_frame,173247
+funcname,__restore_core_regs,173242
+funcname,__gnu_Unwind_Resume_or_Rethrow,173241
+funcname,__gnu_Unwind_Resume,173238
+funcname,___Unwind_Resume_or_Rethrow,173238
+funcname,restore_core_regs,173237
+funcname,__gnu_Unwind_Save_VFP,173236
+funcname,__gnu_Unwind_ForcedUnwind,173236
+funcname,__gnu_Unwind_RaiseException,173235
+funcname,___Unwind_ForcedUnwind,173233
+funcname,__gnu_Unwind_Backtrace,173232
+funcname,__gnu_unwind_execute,173231
+funcname,__gnu_Unwind_Restore_VFP,173230
+funcname,__gnu_Unwind_Restore_VFP_D,173228
+funcname,___Unwind_RaiseException,173227
+funcname,___Unwind_Resume,173226
+funcname,__gnu_Unwind_Restore_WMMXC,173225
+funcname,_Unwind_ForcedUnwind,173224
+funcname,__gnu_Unwind_Restore_WMMXD,173223
+funcname,___Unwind_Backtrace,173220
+funcname,__gnu_Unwind_Save_VFP_D_16_to_31,173220
+funcname,__gnu_Unwind_Restore_VFP_D_16_to_31,173220
+funcname,__gnu_Unwind_Save_VFP_D,173218
+funcname,__gnu_Unwind_Save_WMMXD,173216
+funcname,__gnu_Unwind_Save_WMMXC,173216
+funcname,__divsi3,139187
+funcname,__aeabi_idiv,139118
+funcname,__aeabi_idivmod,138955
+funcname,__udivsi3,137468
+funcname,__aeabi_uidiv,137394
+funcname,__aeabi_uidivmod,137233
+funcname,__aeabi_idiv0,126964
+funcname,__aeabi_ldiv0,126963
+funcname,__floatundidf,122278
+funcname,__subdf3,122276
+funcname,__adddf3,122274
+funcname,__floatdidf,122273
+funcname,__floatsidf,122270
+funcname,__extendsfdf2,122268
+funcname,__floatunsidf,122264
+funcname,__aeabi_l2d,122223
+funcname,__aeabi_ul2d,122184
+funcname,__aeabi_ui2d,122165
+funcname,__aeabi_dsub,122160
+funcname,__aeabi_f2d,122160
+funcname,__aeabi_i2d,122158
+funcname,__aeabi_dadd,122156
+funcname,__aeabi_drsub,122129
+funcname,__muldf3,115251
+funcname,__divdf3,115227
+funcname,__aeabi_dmul,115156
+funcname,__aeabi_ddiv,115139
+funcname,JNI_OnLoad,112056
+funcname,__divdi3,110818
+funcname,__udivdi3,110816
+funcname,__gnu_ldivmod_helper,110804
+funcname,__gnu_uldivmod_helper,110803
+funcname,__gedf2,109805
+funcname,__gtdf2,109797
+funcname,__eqdf2,109797
+funcname,__ledf2,109796
+funcname,__nedf2,109795
+funcname,__cmpdf2,109794
+funcname,__ltdf2,109788
+funcname,__aeabi_dcmpgt,109693
+funcname,__aeabi_dcmpge,109691
+funcname,__aeabi_cdrcmple,109691
+funcname,__aeabi_dcmpeq,109688
+funcname,__aeabi_cdcmple,109685
+funcname,__aeabi_dcmplt,109685
+funcname,__aeabi_dcmple,109684
+funcname,__aeabi_cdcmpeq,109679
+funcname,__floatdisf,104345
+funcname,__floatundisf,104338
+funcname,__floatsisf,104329
+funcname,__subsf3,104328
+funcname,__addsf3,104323
+funcname,__floatunsisf,104321
+funcname,__aeabi_l2f,104308
+funcname,__aeabi_ul2f,104260
+funcname,__aeabi_fsub,104255
+funcname,__aeabi_i2f,104253
+funcname,__aeabi_ui2f,104253
+funcname,__aeabi_fadd,104247
+funcname,__aeabi_frsub,104239
+funcname,__aeabi_uldivmod,102415
+funcname,__gtsf2,99698
+funcname,__gesf2,99697
+funcname,__eqsf2,99697
+funcname,__nesf2,99696
+funcname,__ltsf2,99695
+funcname,__cmpsf2,99694
+funcname,__lesf2,99693
+funcname,__aeabi_fcmpgt,99620
+funcname,__aeabi_fcmpeq,99619
+funcname,__aeabi_cfrcmple,99619
+funcname,__aeabi_fcmpge,99617
+funcname,__aeabi_fcmple,99614
+funcname,__aeabi_cfcmpeq,99612
+funcname,__aeabi_fcmplt,99612
+funcname,__aeabi_cfcmple,99607
+funcname,__fixunsdfsi,99398
+funcname,__aeabi_d2uiz,99296
+funcname,__aeabi_ldivmod,97461
+funcname,__cxa_end_cleanup,95456
+funcname,__cxa_call_unexpected,94012
+funcname,__mulsf3,86741
+funcname,__divsf3,86733
+funcname,__aeabi_fdiv,86665
+funcname,__aeabi_fmul,86656
+funcname,__truncdfsf2,85608
+funcname,__aeabi_d2f,85533
+funcname,__cxa_begin_cleanup,85242
+funcname,__cxa_type_match,82532
+funcname,__fixunsdfdi,82318
+funcname,__aeabi_d2ulz,82259
+funcname,__fixdfsi,81547
+funcname,__aeabi_d2iz,81476
+funcname,__cxa_guard_abort,74824
+funcname,__cxa_guard_release,74811
+funcname,__cxa_guard_acquire,74808
+funcname,__fixdfdi,74492
+funcname,__aeabi_d2lz,74469
+funcname,__cxa_get_globals,74003
+funcname,__cxa_throw,74002
+funcname,__cxa_get_globals_fast,74001
+funcname,__cxa_free_exception,73998
+funcname,__cxa_rethrow,73992
+funcname,__cxa_allocate_exception,73992
+funcname,__cxa_end_catch,73992
+funcname,__cxa_begin_catch,73991
+funcname,__cxa_get_exception_ptr,73970
+funcname,__cxa_demangle,72283
+funcname,__cxa_current_exception_type,72262
+funcname,__cxa_free_dependent_exception,72248
+funcname,__cxa_allocate_dependent_exception,72245
+funcname,__fixsfsi,72077
+funcname,__aeabi_f2iz,72012
+funcname,__cxa_pure_virtual,69960
+funcname,__gcclibcxx_demangle_callback,69514
+funcname,__aeabi_f2uiz,69106
+funcname,__fixunssfsi,69079
+funcname,__gnu_thumb1_case_uqi,68769
+funcname,__cxa_bad_cast,66348
+funcname,__cxa_bad_typeid,66346
+funcname,__dynamic_cast,62297
+funcname,__ashldi3,61144
+funcname,__aeabi_llsl,61101
+funcname,__gnu_end_cleanup,59407
+funcname,__muldi3,57931
+funcname,__aeabi_lmul,57844
+funcname,__popcountsi2,55416
+funcname,android_getCpuFeatures,53757
+funcname,android_getCpuFamily,53743
+funcname,__gnu_thumb1_case_uhi,53399
+func,operator delete(void*),109211
+func,operator new(unsigned int),108387
+func,operator new[](unsigned int),103725
+func,operator delete[](void*),103376
+func,__cxxabiv1::__class_type_info::~__class_type_info(),84769
+func,__cxxabiv1::__si_class_type_info::~__si_class_type_info(),84768
+func,__cxxabiv1::__vmi_class_type_info::~__vmi_class_type_info(),69966
+func,"__cxxabiv1::__si_class_type_info::__do_find_public_src(int, void const*, __class_type_info const*, void const*) const",69757
+func,"__cxxabiv1::__si_class_type_info::__do_dyncast(int, __sub_kind, __class_type_info const*, void const*, __class_type_info const*, void const*, __dyncast_result&) const",69754
+func,"__cxxabiv1::__class_type_info::__do_dyncast(int, __sub_kind, __class_type_info const*, void const*, __class_type_info const*, void const*, __dyncast_result&) const",69749
+func,"__cxxabiv1::__si_class_type_info::__do_upcast(__class_type_info const*, void const*, __upcast_result&) const",69748
+func,"__cxxabiv1::__class_type_info::__do_find_public_src(int, void const*, __class_type_info const*, void const*) const",69748
+func,"__cxxabiv1::__class_type_info::__do_catch(std::type_info const*, void**, unsigned int) const",69746
+func,"__cxxabiv1::__class_type_info::__do_upcast(__class_type_info const*, void const*, __upcast_result&) const",69746
+func,"__cxxabiv1::__class_type_info::__do_upcast(__class_type_info const*, void**) const",69744
+func,__cxxabiv1::__terminate(void (*)()),69453
+func,__cxxabiv1::__unexpected(void (*)()),69452
+func,__cxxabiv1::__forced_unwind::~__forced_unwind(),69444
+func,__cxxabiv1::__foreign_exception::~__foreign_exception(),69444
+func,__gnu_cxx::__verbose_terminate_handler(),69443
+func,"_JNIEnv::CallStaticVoidMethod(_jclass*, _jmethodID*, ...)",62957
+func,"_JNIEnv::CallStaticObjectMethod(_jclass*, _jmethodID*, ...)",62111
+func,"_JNIEnv::CallStaticIntMethod(_jclass*, _jmethodID*, ...)",56846
+func,"__cxxabiv1::__vmi_class_type_info::__do_find_public_src(int, void const*, __class_type_info const*, void const*) const",56147
+func,"__cxxabiv1::__vmi_class_type_info::__do_dyncast(int, __sub_kind, __class_type_info const*, void const*, __class_type_info const*, void const*, __dyncast_result&) const",56146
+func,"__cxxabiv1::__vmi_class_type_info::__do_upcast(__class_type_info const*, void const*, __upcast_result&) const",56144
+func,"_JNIEnv::CallStaticBooleanMethod(_jclass*, _jmethodID*, ...)",54418
+func,__cxxabiv1::__pbase_type_info::~__pbase_type_info(),53664
+func,__cxxabiv1::__fundamental_type_info::~__fundamental_type_info(),53658
+func,__cxxabiv1::__pointer_type_info::~__pointer_type_info(),53655
+func,"__cxxabiv1::__pbase_type_info::__do_catch(std::type_info const*, void**, unsigned int) const",51823
+func,"__cxxabiv1::__pointer_type_info::__pointer_catch(__pbase_type_info const*, void**, unsigned int) const",51812
+func,__cxxabiv1::__pointer_type_info::__is_pointer_p() const,51807
+func,_JNIEnv::DeleteLocalRef(_jobject*),47082
+func,"_JNIEnv::CallObjectMethod(_jobject*, _jmethodID*, ...)",46413
+func,"_JNIEnv::CallStaticFloatMethod(_jclass*, _jmethodID*, ...)",44292
+func,_JNIEnv::NewStringUTF(char const*),40902
+func,"operator new(unsigned int, std::nothrow_t const&)",37514
+func,"_JNIEnv::CallVoidMethod(_jobject*, _jmethodID*, ...)",3555

@@ -1,0 +1,17 @@
+name,full_name
+openssl,openssl/openssl
+opencv,Itseez/opencv
+libpng,glennrp/libpng
+libgdx,libgdx/libgdx
+cocos2d,cocos2d/cocos2d-x
+android-jpeg,android/platform_external_jpeg
+android-zlib,android/platform_external_zlib
+android-giflib,android/platform_external_giflib
+android-libpng,android/platform_external_libpng
+android-openssl,android/platform_external_openssl
+mz-stagefright,mozilla-b2g/platform_frameworks_av
+cg-stagefright,CyanogenMod/android_frameworks_av
+videolan,videolan/vlc
+p7zip,CoolOppo/7-Zip
+allplayer,
+amazon,

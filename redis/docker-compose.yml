@@ -1,0 +1,16 @@
+version: '3'
+services:
+  redis-cluster:
+    build:
+      context: .
+      args:
+        redis_version: '4.0.2'
+    hostname: redis
+    ports:
+      - "6000-6008:6000-6008"
+      - "7000-7008:7000-7008"
+    volumes:
+      - /datadrive/redis:/redis-data
+    environment:
+      - REDIS_CLUSTER_ADVERTISED_IP=${REDIS_CLUSTER_ADVERTISED_IP}
+    network_mode: ${REDIS_CLUSTER_DOCKER_NET_MODE}

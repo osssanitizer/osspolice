@@ -1,0 +1,78 @@
+- mopub sdk
+- version pinpointing in java side has a bug, debug with this:
+- smali/com/mopub/common/Mopub.smali
+    - /data/gpl_violation/data/play-latest/net.ReferyGames.TC2JM-1000008.apk
+        - 4.5.0
+    - /data/gpl_violation/data/play-latest/beemoov.amoursucre.android-44.apk
+        - 4.7.1
+    - /data/gpl_violation/data/play-latest/com.kokteyl.sahadan-430.apk
+        - 4.8.0
+    - /data/gpl_violation/data/play-latest/com.luklek.smartinputv5.skin.rose-22.apk
+        - 4.5.1
+    - /data/gpl_violation/data/play-latest/br.salmos.com-71.apk
+        - 4.5.0
+    - /data/gpl_violation/data/play-latest/br.com.tapps.myvirtualdino-102.apk
+        - 4.5.0
+    - /data/gpl_violation/data/play-latest/com.luklek.smartinputv5.skin.gcitywhite-21.apk
+        - 4.5.1
+    - /data/gpl_violation/data/play-latest/com.evilapples.app-2489.apk
+        - 4.5.0
+    - /data/gpl_violation/data/play-latest/com.luklek.smartinputv5.skin.gcitywhite-21.apk
+        - 4.7.1
+    - /data/gpl_violation/data/play-latest/com.alawar.MountainCrimeRequital-1024.apk
+        - 4.0.0
+    - /data/gpl_violation/data/play-latest/com.dts.counter.terrorist.police-2.apk
+        - 4.5.1
+    - /data/gpl_violation/data/play-latest/com.ggs.heavy.car.lifter.simulator-5.apk
+        - 4.5.1
+    - /data/gpl_violation/data/play-latest/com.daingo.news.russia-80400.apk
+        - 4.7.1
+    - /data/gpl_violation/data/play-latest/ru.sports.shakhtar-376.apk
+        - 4.6.0
+    - /data/gpl_violation/data/play-latest/com.the7art.rockclock-19.apk
+        - 4.4.0
+    - /data/gpl_violation/data/play-latest/nova.iguide-14.apk
+        - 4.10.0
+    - /data/gpl_violation/data/play-latest/com.kkkeyboard.emoji.keyboard.theme.United_States-161.apk
+        - 3.11.0
+    - /data/gpl_violation/data/play-latest/com.edevgames.christmasskinsforminecraft-4.apk
+        - 4.5.0
+    - /data/gpl_violation/data/play-latest/com.leodesol.games.blocksandshapes.android-13.apk
+        - 4.5.0
+    - /data/gpl_violation/data/play-latest/com.kibo.mobi.arsenal.fc.official.keyboard-534.apk
+        - 4.7.0
+    - /data/gpl_violation/data/play-latest/com.leprechaun.imagenscommensagensdedeus-59.apk
+        - 4.8.0
+    - /data/gpl_violation/data/play-latest/br.com.tapps.myvirtualpetshop-2025.apk
+        - 4.5.0
+    - /data/gpl_violation/data/play-latest/com.plagiarisma.net-24.apk
+        - 4.0.0
+    - /data/gpl_violation/data/play-latest/us.gospeed.speedvpn-44.apk
+        - 4.4.1
+
+- okhttp SDK
+- okhttp < 3.2.0
+- okhttp < 2.7.5
+- https://publicobject.com/2016/02/11/okhttp-certificate-pinning-vulnerability/
+- https://medium.com/square-corner-blog/vulnerability-in-okhttps-certificate-pinner-2a7326ad073b#.lkmvrf7n6
+- Two names for the same library!
+    - /data/gpl_violation/data/play-latest/com.rediff.mail.and-35.apk
+        - flagged 2.7.1 / 3.0.1
+        - actual 3.0.0
+    - /data/gpl_violation/data/play-latest/com.peaksel.wallpapersforgirls-41.apk
+        - flagged 2.2.0 /
+        - actual 2.2.0
+    - /data/gpl_violation/data/play-latest/com.newsblur-127.apk
+        - flagged 2.7.5
+        - actual 3.2.0
+    - /data/gpl_violation/data/play-latest/z.playw.hh3-24.apk
+        - flagged  1.5.3
+        - actual no matches
+- /data/gpl_violation/data/play-latest/au.com.tapstyle-289.apk
+    - flagged 2.7.1 or 3.1.0
+    - Okhttp 3.4.1
+
+- dropbox sdk
+- /data/gpl_violation/data/play-latest/com.seagate.android.dashboard-1004023000.apk
+- flagged: 2.0.6
+- actual: 1.6.3

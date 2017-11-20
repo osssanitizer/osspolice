@@ -1,0 +1,2 @@
+1. variable false positive due to separate parsing
+2. notice that the simhash generation at indexing time, performed two times of md5. One at feature generation time, the other at simhash computation time.

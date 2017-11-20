@@ -1,0 +1,166 @@
+syntax = "proto2";
+package gtisc.gplviolation.proto;
+
+// Referenced from proj_crawler/pipelines.py, the protocol buffer is designed for compatability, compared to database.
+//
+// The definition of repo is broad, it can be an apk, a jar or an open source repo, or an apk/jar associated with a repo
+message RepoDetail {
+    enum RepoSource {
+
+        GOOGLE_PLAY = 1;
+        GITHUB = 2;
+        BITBUCKET = 3;
+        FDROID = 4;
+        ANDROID_ARSENAL = 5;
+        MAVEN = 6;
+        ANDROID_LIBS = 7;
+        JCENTER = 8;
+    }
+    optional bytes repo_id = 1;  // the gh_id in GitHub, the digest/package name in Apps etc.
+    optional RepoSource repo_source = 2;
+    optional bytes repo_url = 3;  // the link to download or description
+    repeated RepoVersion repo_versions = 4;
+}
+
+message RepoVersion {
+    optional bytes version_number = 1;
+    optional bytes version_url = 2;
+    optional bytes binary_path = 3;
+    optional bytes source_path = 4;
+
+    // The dependencies included in this version
+    optional RepoDetail dependencies = 5;
+}
+
+enum FileType {
+    // types to extract
+    DEX = 1;
+    JAR = 2;
+    SO = 3;
+    COMPRESSED = 4;
+    XML = 9;  // For callbacks
+
+    // types of input
+    APK = 5;
+    DIR = 6;
+    // COMPRESSED, DEX, JAR, XML can also be input.
+    JSON = 7;
+    CSV = 8;
+    PROTO_BIN = 10;
+    PROTO_TEXT = 11;
+
+    // unknown file type, UNKNOWN_GOOD -> unknown but we don't care, UNKNOWN -> unknown and we care
+    UNKNOWN_GOOD = 100;
+    UNKNOWN = 101;
+}
+
+message ExtractComponent {
+    // This replicates the definition of apps_extract_components_detail in extract_from_compressed_files.py, with some
+    // modification
+    optional bytes component_digest = 1;
+    repeated bytes component_inner_paths = 2;
+    optional FileType component_type = 3;
+    optional bytes store_path = 4;
+}
+
+message ExtractApp {
+    // This replicates the definition of apps_extract_summary in extract_from_compressed_files.py
+    // NOTE: This is just summary of an app and is used for mapping component to app, if you want the full app, use ExtractConfig (badly named)
+    optional bytes app_digest = 1;
+    optional bytes package_name = 2;
+    optional bytes version = 3;
+    optional bytes source = 4;
+    optional int32 downloaded = 5;
+    optional bytes downloaded_path = 6;
+    optional int32 processed = 7;
+    optional int32 sharedlib_count = 8;
+    optional int32 dex_count = 9;
+    optional int32 missing_type_count = 10;
+}
+
+message ComponentToApps {
+    // This replicates the relationship between apps and components, i.e. maps each component to the containing app
+    optional ExtractComponent component = 1;
+    optional int32 apps_count = 2;
+    repeated ExtractApp apps = 3;
+}
+
+message ExtractConfig {
+    // This configuration is used to pass the information associated with the item along, and is essentially the expected database item.
+    // NOTE: This is configuration, as well as the analysis result for each app
+    repeated FileType extract_types = 1;
+    optional bool inspect_compressed_files = 2 [default = true];
+    optional bytes in_path = 3; // can be file or directory
+    optional FileType in_type = 4;
+    optional bytes out_path = 5;
+    optional bytes db_path = 6;  // the db is used for storing the digest to filename mapping, if specified
+    // the files can be repeated extracted from, and this stores all the relative path
+    // e.g. level1.tgz -> (level1/d1/d2/d3.zip, f1/f2/f3.tgz, f3/h1/h2/h3.so)
+    repeated bytes all_in_paths = 7;
+    optional bytes summary_table_name = 8;  // e.g. apps_extract_summary
+    optional bytes detail_table_name = 9;  // e.g. apps_extract_components_detail
+
+    // Specific for COMPRESSED input type
+    optional bytes in_digest = 10;
+    // The type of storage to use. Either store the processed results to separate files, or store them into a database.
+    optional bytes store_type = 11;
+
+    // The extracted components, each file is one record
+    repeated ExtractComponent components = 12;
+
+    // Summarize the size of contents in this file
+    // Summarize based on based on file mimes, folders, based on file suffixes
+    message LabelSize {
+        required bytes label = 1;
+        required int32 size = 2;
+    }
+    repeated LabelSize mime_based_sizes = 13;
+    repeated LabelSize suffix_based_sizes = 14;
+    repeated LabelSize dir_based_sizes = 15;
+    optional int32 app_size = 16;
+    optional int32 unpacked_size = 17;
+}
+
+message ExtractResult {
+    // The statistics.
+    optional bytes timestamp = 1;
+    optional int32 total_count = 2;
+    optional int32 failure_no_components_count = 3;
+    optional int32 failure_extraction_count = 4;
+    optional int32 failure_no_dex_count = 5;
+
+    optional int32 success_count = 6;  // has more than one components
+    optional int32 unique_so_count = 7;
+    optional int32 unique_dex_count = 8;
+
+    // The extracted components, and their detail, i.e. map from component to apps
+    repeated ComponentToApps extract_components = 9;
+    // The extracted apps, and their detail, i.e. map from app to components
+    repeated ExtractConfig extract_apps = 10;
+
+    // The input files to the extract summary job.
+    repeated bytes apk_lists = 11;
+    repeated bytes extract_lists = 12;
+
+    // The storage statistics.
+    message LabelSummary {
+        required bytes label = 1;
+        // size related, similar to http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.describe.html#scipy.stats.describe
+        optional int32 nobs = 2;
+        optional float avg_size = 3;
+        optional int32 min_size = 4;
+        optional int32 max_size = 5;
+        optional float var_size = 6;
+        optional int64 sum_size = 7;
+        repeated int32 all_sizes = 8;
+        // size ratio related, against unpacked size
+        optional float avg_ratio = 9;
+        optional float min_ratio = 10;
+        optional float max_ratio = 11;
+        optional float var_ratio = 12;
+        repeated float all_ratios = 13;
+    }
+    repeated LabelSummary mime_based_summaries = 13;
+    repeated LabelSummary suffix_based_summaries = 14;
+    repeated LabelSummary dir_based_summaries = 15;
+}

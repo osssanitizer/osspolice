@@ -1,0 +1,478 @@
+Android Support library
+
+Google Cloud Messaging (GCM)
+
+Google gson
+https://github.com/google/gson
+BoltsFramework
+https://github.com/BoltsFramework/Bolts-Android
+Flurry Analytics
+https://github.com/flurry/mopub-android-sdk
+Dagger
+https://github.com/square/dagger
+FMOD Ex Programmers API
+
+Glide
+https://github.com/bumptech/glide
+NineOldAndroids
+
+Crashlytics
+
+Unity 3D
+
+okHttp
+https://github.com/square/okhttp
+Okio
+https://github.com/square/okio
+Google Protocol Buffers
+https://github.com/google/protobuf
+fabric
+
+Google Analytics
+
+Retrofit
+https://github.com/square/retrofit
+Picasso
+https://github.com/square/picasso
+Apache HttpMime API
+
+Google Guava
+https://github.com/google/guava
+greenrobot EventBus
+https://github.com/greenrobot/EventBus
+Apache Commons Codec
+https://github.com/apache/commons-codec
+Jackson JSON Processor
+https://github.com/codehaus/jackson
+Apache Commons I/O
+https://github.com/apache/commons-io
+Universal Image Loader
+https://github.com/nostra13/Android-Universal-Image-Loader
+FasterXML Jackson
+https://github.com/FasterXML/jackson-core
+AndroidSVG
+https://github.com/BigBadaboom/androidsvg
+ViewPager indicator
+https://github.com/JakeWharton/ViewPagerIndicator
+Butter Knife
+https://github.com/JakeWharton/butterknife
+ThreatMetrix SDK
+
+Cocos2D-X
+https://github.com/cocos2d/cocos2d-x
+ReactiveX
+https://github.com/ReactiveX/RxAndroid
+Apache Http Auth
+
+RxJava
+https://github.com/ReactiveX/RxJava
+Google Play In-app Billing
+
+Apache Commons Logging
+https://github.com/apache/commons-logging
+HockeyApp
+https://github.com/bitstadium/HockeySDK-Android
+Amazon in-app purchasing
+
+JSON.simple
+https://github.com/fangyidong/json-simple
+Prime31 Unity Plugins
+
+Simple Logging Facade for Java (SLF4J)
+https://github.com/qos-ch/slf4j
+SignPost OAuth
+https://github.com/mttkay/signpost
+Google ZXing
+https://github.com/zxing/zxing
+Android Asynchronous Http Client
+https://github.com/loopj/android-async-http
+libgdx
+https://github.com/libgdx/libgdx
+Apache Commons Lang
+https://github.com/apache/commons-lang
+Umeng
+
+PhotoView
+https://github.com/chrisbanes/PhotoView
+Comscore Analytics
+
+Material Dialogs
+https://github.com/afollestad/material-dialogs
+Spring Framework
+https://github.com/spring-projects/spring-framework
+DragSortListView
+https://github.com/bauerca/drag-sort-listview
+mixpanel
+https://github.com/mixpanel/mixpanel-android
+LeakCanary
+https://github.com/square/leakcanary
+Spongy Castle - Bouncy Castle for Android
+https://github.com/rtyley/spongycastle
+Samsung In-App Purchase
+
+Amazon AWS SDK for Android
+https://github.com/aws/aws-sdk-android
+Adobe AIR
+
+ACRA
+https://github.com/ACRA/acra
+AndroidSlidingUpPanel
+https://github.com/umano/AndroidSlidingUpPanel
+MPAndroidChart
+https://github.com/PhilJay/MPAndroidChart
+MaterialProgressBar
+https://github.com/DreaminginCodeZH/MaterialProgressBar
+Dropbox API
+https://github.com/dropbox/dropbox-sdk-java
+jsoup: Java HTML Parser
+https://github.com/jhy/jsoup
+Android Pull to refresh
+https://github.com/chrisbanes/Android-PullToRefresh
+Joda
+https://github.com/JodaOrg/joda-time
+Parse
+https://github.com/ParsePlatform/Parse-SDK-Android
+Google GData client
+https://github.com/google/gdata-java-client
+Actionbar Sherlock
+
+Apache Thrift
+https://github.com/apache/thrift
+OrmLite
+https://github.com/j256/ormlite-core
+Scribe OAuth
+https://github.com/scribejava/scribejava
+Crittercism
+
+SlidingMenu
+https://github.com/jfeinstein10/SlidingMenu
+Localytics
+
+StickyListHeaders
+https://github.com/emilsjolander/StickyListHeaders
+Moga
+
+card.io
+https://github.com/card-io/card.io-Android-SDK
+Milkman Games Extensions
+
+ImageViewZoom
+https://github.com/sephiroth74/ImageViewZoom
+CircleImageView
+https://github.com/hdodenhof/CircleImageView
+Open UDID
+https://github.com/vieux/OpenUDID
+Apache James Mime4j
+https://github.com/apache/james-mime4j
+PhoneGap / Apache Cordova
+https://github.com/phonegap/phonegap-plugin-push
+Urban Airship
+https://github.com/urbanairship/android-library
+Simple XML Serialization
+
+Nexage SourceKit-MRAID For Android
+https://github.com/nexage/sourcekit-mraid-android
+Android-Job
+https://github.com/evernote/android-job
+Android Native Plugin for Unity
+
+Basic HTTP Client
+https://github.com/turbomanage/basic-http-client
+Paypal SDK
+https://github.com/paypal/PayPal-Android-SDK
+SmoothProgressBar
+https://github.com/castorflex/SmoothProgressBar
+AndEngine
+https://github.com/nicolasgramlich/AndEngine
+Disk LRU Cache
+https://github.com/JakeWharton/DiskLruCache
+Droid-Fu
+https://github.com/mttkay/droid-fu
+Yandex Metrica
+https://github.com/yandexmobile/metrica-sdk-android
+Google Play Licensing Service
+
+Google Guice
+https://github.com/google/guice
+XML Pull Parsing
+
+CommonsWare Android Components (CWAC)
+https://github.com/commonsguy/cw-android
+Cropper
+https://github.com/edmodo/cropper
+kXML
+https://github.com/karlmdavis/kxml2
+Android Query
+https://github.com/androidquery/androidquery
+AndroidAsync
+https://github.com/koush/AndroidAsync
+LoganSquare
+https://github.com/bluelinelabs/LoganSquare
+Pushwoosh
+https://github.com/Pushwoosh/pushwoosh-android-sdk
+svg-android
+https://github.com/japgolly/svg-android
+greenDAO
+https://github.com/greenrobot/greenDAO
+android-wheel
+https://github.com/maarek/android-wheel
+Tablelayout
+https://github.com/EsotericSoftware/tablelayout
+RoboGuice
+https://github.com/roboguice/roboguice
+Java Native Lua
+https://github.com/fnuecke/jnlua/tree/master/jnlua
+AChartEngine
+https://github.com/ddanny/achartengine
+Corona SDK
+
+Marmalade SDK
+
+Nuance
+https://github.com/NuanceDev/speechkit-android
+Fiksu Mobile App Marketing
+
+NewQuickAction
+https://github.com/lorensiuswlt/NewQuickAction
+NewQuickAction3D
+https://github.com/lorensiuswlt/NewQuickAction3D
+Aviary
+
+Android Color Picker
+https://github.com/yukuku/ambilwarna
+Crouton
+https://github.com/keyboardsurfer/Crouton
+Apsalar
+
+The Legion of the Bouncy Castle
+
+kSOAP 2
+https://github.com/simpligility/ksoap2-android
+kObjects Utilities
+
+Baidu Geolocation
+
+Kryo
+https://github.com/EsotericSoftware/kryo
+JDOM
+https://github.com/hunterhacker/jdom
+JavaMail
+
+dnsjava
+https://github.com/dnsjava/dnsjava
+juniversalchardet
+https://github.com/albfernandez/juniversalchardet
+ZBar bar code reader
+https://github.com/ZBar/ZBar/tree/master/android
+JCraft
+
+prettytime
+https://github.com/ocpsoft/prettytime
+Bugsense
+
+javamail-android
+
+SugarORM
+https://github.com/satyan/sugar
+Braintree Client Encryption Library
+https://github.com/braintree/braintree_android_encryption
+ActiveAndroid
+https://github.com/pardom/ActiveAndroid
+HttpClient for Android
+https://github.com/apache/httpclient
+TagSoup
+
+The Java CIFS Client Library (JCIFS)
+
+Mozilla Rhino
+https://github.com/mozilla/rhino
+Gamemaker: Studio
+
+LicensesDialog
+https://github.com/PSDev/LicensesDialog
+Base64 encoder/decoder
+
+dom4j
+https://github.com/dom4j/dom4j
+Cocos2D
+
+MessagePack
+https://github.com/msgpack/msgpack-java
+RobotMedia Billing
+https://github.com/robotmedia/AndroidBillingLibrary
+htmlcleaner
+https://github.com/amplafi/htmlcleaner
+RoboSpice
+https://github.com/stephanenicolas/robospice
+MaterialDrawer
+https://github.com/mikepenz/MaterialDrawer
+ViewPagerExtensions
+https://github.com/astuetz/ViewPagerExtensions
+Vitamio
+https://github.com/yixia/VitamioBundle
+Mono for Android
+https://github.com/xamarin/xamarin-android
+epublib
+https://github.com/psiegman/epublib
+OpenUDID
+https://github.com/jasonlamkk/OpenUDID
+DevsmartLib
+https://github.com/dinocore1/DevsmartLib-Android
+Android Smart Image View
+https://github.com/loopj/android-smart-image-view
+Splunk MINT
+https://github.com/splunk/splunk-sdk-mint-xamarin-android
+JAudiotagger
+https://github.com/soc/jaudiotagger
+PhoneGap Social Sharing
+https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin
+Andromo
+
+MongoDB Java Driver
+https://github.com/mongodb/mongo-java-driver
+jchardet
+https://github.com/vidoss/jchardet
+JUnit
+
+mColorPicker
+https://github.com/danielnilsson9/color-picker-view
+Novell SASL
+
+GreenDroid
+https://github.com/cyrilmottier/GreenDroid
+Jaxen
+https://github.com/codehaus/jaxen
+android-multitouch-controller
+https://github.com/brk3/android-multitouch-controller
+aacdecoder-android
+https://github.com/vbartacek/aacdecoder-android
+MenuDrawer
+https://github.com/SimonVT/android-menudrawer
+Apportable
+
+CleverTap
+https://github.com/CleverTap/clevertap-android-sdk
+Android ViewBadger
+https://github.com/jgilfelt/android-viewbadger
+Webtrends mobile
+
+PermissionsDispatcher
+https://github.com/hotchemi/PermissionsDispatcher
+Speex
+https://github.com/xiph/speex
+Box OneCloud
+https://github.com/box/box-android-sdk
+Android CalendarView
+https://github.com/akashjain1306/Android-CalendarView
+OpenStreetMap tools for Android
+https://github.com/osmdroid/osmdroid
+Android BitmapCache
+https://github.com/chrisbanes/Android-BitmapCache
+DBFlow
+https://github.com/Raizlabs/DBFlow
+AndroidPlot
+https://github.com/halfhp/androidplot
+PDFTron
+
+Basic4android
+https://github.com/tapfortap/Basic4Android
+GLWallpaperService
+https://github.com/markfguerra/GLWallpaperService
+Ignition
+https://github.com/mttkay/ignition
+android-remote-stacktrace
+
+Project Kenai - jbosh
+https://github.com/igniterealtime/jbosh
+Appcelerator (Titanium Mobile)
+
+AndroidAnnotations
+https://github.com/androidannotations/androidannotations
+Adobe App Measurement for Android
+
+Android Page Curl
+https://github.com/harism/android_page_curl
+Box Android API
+https://github.com/box/box-android-sdk
+android-actionbar
+https://github.com/johannilsson/android-actionbar
+seattleclouds
+
+VuDroid
+
+android-pulltorefresh
+https://github.com/johannilsson/android-pulltorefresh
+APPMK
+
+GNU Kawa
+
+OnBarcode
+
+IBM Mobile Push Notification
+
+Android zooming view
+https://github.com/Polidea/android-zoom-view
+AppYet
+
+LazyList
+https://github.com/thest1/LazyList/
+Android youtube player
+
+microlog4android
+https://github.com/johanlkarlsson/microlog4android
+Locale
+
+bitlyj
+https://github.com/criedel/bitlyj
+AppsGeyser
+https://github.com/Appsgeyser/CustomReader
+DataDroid
+https://github.com/foxykeep/DataDroid
+libs-for-android
+
+Plot Projects
+
+Entagged
+
+Fortumo
+
+Zong
+
+Airbrake Notifier for Android
+https://github.com/airbrake/airbrake
+mapviewballoons
+https://github.com/jgilfelt/android-mapviewballoons
+Android Bootstrap
+https://github.com/Bearded-Hen/Android-Bootstrap
+SwipeRevealLayout
+https://github.com/chthai64/SwipeRevealLayout
+HoloEverywhere
+https://github.com/Prototik/HoloEverywhere
+Conductor
+https://github.com/bluelinelabs/Conductor
+Jettison JSON StAX Implementation
+https://github.com/codehaus/jettison
+Appirater
+https://github.com/Huppie/Appirater-for-Android
+Android Coverflow
+https://github.com/Polidea/android-coverflow
+App Inventor
+https://github.com/mit-cml/appinventor-sources
+Zubhium
+
+Applause
+https://github.com/applause/applause
+Bump
+
+Boku
+
+Apphance
+
+DroidUX
+
+Alternative dropbox client
+
+Marketo Mobile
+
+SocketScan ScanAPI
+

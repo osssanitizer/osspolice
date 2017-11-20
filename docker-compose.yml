@@ -1,0 +1,13 @@
+version: "3"
+services:
+  osspolice:
+    build: .
+    hostname: osspolice
+    volumes:
+      - ./main:/home/user/osspolice-dev
+      - /tmp:/tmp
+      - /data:/data
+    environment:
+      - QUEUE_COUNT=${QUEUE_COUNT}
+      - CONCURRENCY=${CONCURRENCY}
+    command: /bin/sh -c "celery multi start ${QUEUE_COUNT} -c ${CONCURRENCY} -A celery_tasks --pidfile=\"/tmp/celery-%n.pid\" --logfile=\"/tmp/celery-%n.log\" && tail -f /dev/null"

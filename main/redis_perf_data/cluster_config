@@ -1,0 +1,14 @@
+[Redis]
+TYPE = REDIS_CLUSTER
+#TYPE = TCP_SOCKET
+PORT = 6379
+HOST = localhost
+DATABASE = 0
+
+[RedisCluster]
+##############################################
+# redis:unstable configuration for azure native libs and java jars
+# NOTE: unstable version added the announce-ip feature to enable redis-clusters with NAT-ed network.
+##############################################
+NATIVE_NODES = [{"host": "40.114.53.233", "port": "6400"}, {"host": "40.114.43.184", "port": "6400"}, {"host": "40.114.43.246", "port": "6400"}, {"host": "40.114.50.68", "port": "6400"}, {"host": "40.76.56.213", "port": "6400"}]
+JAVA_NODES = [{"host": "40.114.53.233", "port": "6401"}, {"host": "40.114.43.184", "port": "6401"}, {"host": "40.114.43.246", "port": "6401"}, {"host": "40.114.50.68", "port": "6401"}, {"host": "40.76.56.213", "port": "6401"}]

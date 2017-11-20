@@ -1,0 +1,31 @@
+[Infrastructure]
+OSS_DB = PostgreSQL
+RESULT_DB = Redis
+REPO_SOURCE = Github
+
+[Github]
+REPO_URL_PROTOCOL = https
+REPO_URL_HOSTNAME = github.com
+
+[PostgreSQL]
+#DB_HOST = localhost
+DB_HOST = gplviolation.cloudapp.net
+DB_PORT = 5432
+NATIVE_DBS = [{"database_name": "github", "database_user": "gplviolation", "database_password": "GPLViolations2016", "table_name": "repositories"}]
+JAVA_DBS = [{"database_name": "jcenter", "database_user": "gplviolation", "database_password": "GPLViolations2016", "table_name": "libs"}, {"database_name": "maven", "database_user": "gplviolation", "database_password": "GPLViolations2016", "table_name": "libs"}]
+
+[Redis]
+TYPE = REDIS_CLUSTER
+#TYPE = TCP_SOCKET
+PORT = 6379
+HOST = localhost
+DATABASE = 0
+
+[RedisCluster]
+# RESULT_NODES = [{"host": "gplviolation.cloudapp.net", "port": "6400"}]
+# RESULT_NODES = [{"host": "gplviolation-w7.cloudapp.net", "port": "6401"}]
+RESULT_NODES = [{"host": "gplviolation-w6.cloudapp.net", "port": "6400"}]
+
+[Viewer]
+LOGFILE_PREFIX = /tmp/viewer_
+APP_INFO = Disabled
